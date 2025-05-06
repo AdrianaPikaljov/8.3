@@ -27,26 +27,26 @@ def lahenda_vorrand():
     except ValueError:
         tulemus_label.config(text="Sisesta õiged väärtused")
 
-def joonista_graafik(a, b, c, *juured):
-    fig, ax = plt.subplots(figsize=(6, 4))
+def joonista_graafik():
+    try:
+        a = float(sisse1.get())
+        b = float(sisse2.get())
+        c = float(sisse3.get())
 
-    x_vals = np.linspace(-10, 10, 400)
-    y_vals = a*x_vals**2 + b*x_vals + c
-
-    ax.plot(x_vals, y_vals, label=f"f(x) = {a}x² + {b}x + {c}", color="blue")
-
-
-    if juured:
-        for juur in juured:
-            ax.plot(juur, 0, 'ro', label=f"Juur: {juur:.2f}")
-
-    ax.axhline(0, color="black", linewidth=1)
-    ax.axvline(0, color="black", linewidth=1)
-    ax.set_xlabel("x")
-    ax.set_ylabel("f(x)")
-    ax.set_title("Ruutvõrrandi Graafik")
-    ax.grid(True)
-    ax.legend()
+        x = np.linspace(-10, 10, 400)
+        y = a * x**2 + b * x + c
+        plt.figure(figsize=(6, 4))
+        plt.plot(x, y, label=f'{a}x² + {b}x + {c}', color='green')
+        plt.axhline(0, color='black',linewidth=1)
+        plt.axvline(0, color='black',linewidth=1)
+        plt.title('Graafik: Ruutvõrrandi f(x)')
+        plt.xlabel('x')
+        plt.ylabel('f(x)')
+        plt.grid(True)
+        plt.legend()
+        plt.show()
+    except ValueError:
+        result_label.config(text="Sisesta õiged väärtused.")
 
 aken = Tk()
 aken.title("Ruutvõrrandi Lahendamine")
