@@ -1,3 +1,4 @@
+
 import numpy as np
 import matplotlib.pyplot as plt
 from tkinter import *
@@ -69,3 +70,5 @@ result_label.place(x=100, y=200)
 sisse5 = Button(aken, text="Joonista graafik", font=("Arial", 15), bg="darkgreen", fg="white", relief="raised", width=15, command=joonista_graafik)
 sisse5.place(x=320, y=150)
 
+
+aken.mainloop()
